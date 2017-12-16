@@ -14,7 +14,6 @@ blaze.properties
 generated/
 ignoreme.txt
 *.log
-bin/
 *.gz
 
 sql.log.*
