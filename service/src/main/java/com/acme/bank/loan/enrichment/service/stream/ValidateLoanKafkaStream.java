@@ -55,7 +55,7 @@ public class ValidateLoanKafkaStream {
         AcmeProperties.Kafka.Topics topics = acmeProperties.getKafka().getTopics();
 
         StreamsBuilder streamBuilder = new StreamsBuilder();
-        KStream<String, ValidateLoanEvent>[] streamBranches = streamBuilder.stream(topics.getValidateLoan(), kafkaHelper.cosumedWith(ValidateLoanEvent.class))
+        KStream<String, ValidateLoanEvent>[] streamBranches = streamBuilder.stream(topics.getValidateLoan(), kafkaHelper.consumedWith(ValidateLoanEvent.class))
                 .branch(this::enrichLoan, this::rejectLoan);
 
         send(streamBranches[0], EnrichLoanEvent.class, topics.getEnrichLoan());
@@ -90,7 +90,7 @@ public class ValidateLoanKafkaStream {
 
     private Properties properties() {
         AcmeProperties.Kafka.Topics topics = acmeProperties.getKafka().getTopics();
-        return kafkaHelper.properties(applicationName.concat("-").concat(topics.getEnrichLoan()));
+        return kafkaHelper.properties(applicationName.concat("-").concat(topics.getValidateLoan()));
     }
 
     @PreDestroy
