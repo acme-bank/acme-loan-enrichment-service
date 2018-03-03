@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  acme_loan_enrichment:
+    build:
+      context: .
+      args:
+        APPLICATION_NAME: acme-loan-enrichment
+    image: docker.acme.com/acme-loan-enrichment:latest
+    container_name: acme_loan_enrichment_01
+    hostname: loan-enrichment
+    domainname: acme.com
+    ports:
+      - 8003:8080
+    networks:
+      acme:
+
+networks:
+  acme:
+    external:
+      name: acme
