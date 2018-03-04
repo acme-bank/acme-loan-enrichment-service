@@ -6,16 +6,24 @@ import java.util.UUID;
 @SuppressWarnings({"unused"})
 public class ValidateLoanEvent {
 
-    private UUID uuid;
+    private UUID eventId;
+    private UUID personId;
     private ZonedDateTime validatedTimestamp;
-    private String personalId;
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getEventId() {
+        return eventId;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setEventId(UUID eventId) {
+        this.eventId = eventId;
+    }
+
+    public UUID getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(UUID personId) {
+        this.personId = personId;
     }
 
     public ZonedDateTime getValidatedTimestamp() {
@@ -24,13 +32,5 @@ public class ValidateLoanEvent {
 
     public void setValidatedTimestamp(ZonedDateTime validatedTimestamp) {
         this.validatedTimestamp = validatedTimestamp;
-    }
-
-    public String getPersonalId() {
-        return personalId;
-    }
-
-    public void setPersonalId(String personalId) {
-        this.personalId = personalId;
     }
 }

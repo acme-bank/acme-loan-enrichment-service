@@ -10,37 +10,38 @@ import java.util.UUID;
 @SuppressWarnings({"unused"})
 public class EnrichLoanEvent {
 
-    private UUID uuid;
-    private ZonedDateTime enrichedTimestamp;
-    private String personalId;
+    private UUID eventId;
+    private UUID personId;
+    private String ssn;
     private LocalDate birthDate;
     private Gender gender;
     private String firstName;
     private String lastName;
     private Country nationality;
+    private ZonedDateTime enrichedTimestamp;
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getEventId() {
+        return eventId;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setEventId(UUID eventId) {
+        this.eventId = eventId;
     }
 
-    public ZonedDateTime getEnrichedTimestamp() {
-        return enrichedTimestamp;
+    public UUID getPersonId() {
+        return personId;
     }
 
-    public void setEnrichedTimestamp(ZonedDateTime enrichedTimestamp) {
-        this.enrichedTimestamp = enrichedTimestamp;
+    public void setPersonId(UUID personId) {
+        this.personId = personId;
     }
 
-    public String getPersonalId() {
-        return personalId;
+    public String getSsn() {
+        return ssn;
     }
 
-    public void setPersonalId(String personalId) {
-        this.personalId = personalId;
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
     }
 
     public LocalDate getBirthDate() {
@@ -81,5 +82,13 @@ public class EnrichLoanEvent {
 
     public void setNationality(Country nationality) {
         this.nationality = nationality;
+    }
+
+    public ZonedDateTime getEnrichedTimestamp() {
+        return enrichedTimestamp;
+    }
+
+    public void setEnrichedTimestamp(ZonedDateTime enrichedTimestamp) {
+        this.enrichedTimestamp = enrichedTimestamp;
     }
 }

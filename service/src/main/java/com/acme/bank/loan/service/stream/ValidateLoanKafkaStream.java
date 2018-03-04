@@ -63,7 +63,7 @@ public class ValidateLoanKafkaStream {
     private boolean enrichLoan(String key, ValidateLoanEvent event) {
         LOGGER.info("Received event with key {} on topic {}", key, KafkaTopic.VALIDATED_LOANS.getTopicName());
 
-        return personRepository.findByPersonalId(event.getPersonalId()) != null;
+        return personRepository.findByPersonId(event.getPersonId()) != null;
     }
 
     private boolean rejectLoan(String key, ValidateLoanEvent value) { // NOSONAR

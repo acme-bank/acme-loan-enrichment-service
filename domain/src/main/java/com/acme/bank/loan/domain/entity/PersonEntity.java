@@ -1,10 +1,11 @@
 package com.acme.bank.loan.domain.entity;
 
-import com.acme.bank.loan.domain.model.Gender;
 import com.acme.bank.loan.domain.model.Country;
+import com.acme.bank.loan.domain.model.Gender;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @SuppressWarnings({"unused"})
 @Table(name = "PERSON")
@@ -14,7 +15,8 @@ public class PersonEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String personalId;
+    private UUID personId;
+    private String ssn;
     private LocalDate birthDate;
     private Gender gender;
     private String firstName;
@@ -29,12 +31,20 @@ public class PersonEntity {
         this.id = id;
     }
 
-    public String getPersonalId() {
-        return personalId;
+    public UUID getPersonId() {
+        return personId;
     }
 
-    public void setPersonalId(String personalId) {
-        this.personalId = personalId;
+    public void setPersonId(UUID personId) {
+        this.personId = personId;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
     }
 
     public LocalDate getBirthDate() {

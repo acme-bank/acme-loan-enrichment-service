@@ -1,22 +1,32 @@
 package com.acme.bank.loan.domain.model;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Person {
 
-    private String personalId;
+    private UUID personId;
+    private String ssn;
     private LocalDate birthDate;
     private Gender gender;
     private String firstName;
     private String lastName;
     private Country nationality;
 
-    public String getPersonalId() {
-        return personalId;
+    public UUID getPersonId() {
+        return personId;
     }
 
-    public void setPersonalId(String personalId) {
-        this.personalId = personalId;
+    public void setPersonId(UUID personId) {
+        this.personId = personId;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
     }
 
     public LocalDate getBirthDate() {

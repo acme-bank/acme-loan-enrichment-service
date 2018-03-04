@@ -21,12 +21,13 @@ public class ValidateLoanEventToEnrichLoanEventConverter extends AbstractConvert
     @Override
     public EnrichLoanEvent convert(ValidateLoanEvent validateLoanEvent) {
         EnrichLoanEvent enrichloanevent = new EnrichLoanEvent();
-        enrichloanevent.setUuid(validateLoanEvent.getUuid());
-        enrichloanevent.setPersonalId(validateLoanEvent.getPersonalId());
+        enrichloanevent.setEventId(validateLoanEvent.getEventId());
+        enrichloanevent.setPersonId(validateLoanEvent.getPersonId());
         enrichloanevent.setEnrichedTimestamp(ZonedDateTime.now());
 
-        PersonEntity person = personRepository.findByPersonalId(validateLoanEvent.getPersonalId());
+        PersonEntity person = personRepository.findByPersonId(validateLoanEvent.getPersonId());
         if (person != null) {
+            enrichloanevent.setSsn(person.getSsn());
             enrichloanevent.setBirthDate(person.getBirthDate());
             enrichloanevent.setGender(person.getGender());
             enrichloanevent.setFirstName(person.getFirstName());
